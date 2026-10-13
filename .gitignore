@@ -1,0 +1,25 @@
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Secrets
+.env
+.env.*
+
+# Local databases and generated output
+chroma_db/
+reports/
+data/mission_memory.json
+
+# Editor and OS files
+.vscode/
+.DS_Store
+Thumbs.db
