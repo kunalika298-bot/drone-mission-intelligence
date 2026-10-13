@@ -1,0 +1,58 @@
+
+def validate_mission(mission):
+    """Validate mission inputs before risk assessment."""
+
+    required_fields = {
+        "battery",
+        "wind_speed",
+        "gps_status",
+    }
+
+    missing = required_fields - mission.keys()
+
+    if missing:
+        return {
+            "valid": False,
+            "errors": [
+                f"Missing required field: {field}"
+                for field in sorted(missing)
+            ],
+        }
+
+    errors = []
+
+    battery = mission["battery"]
+    wind_speed = mission["wind_speed"]
+    gps_status = mission["gps_status"]
+
+    if (
+        isinstance(battery, bool)
+        or not isinstance(battery, (int, float))
+        or not 0 <= battery <= 100
+    ):
+        errors.append("Battery must be a number from 0 to 100.")
+
+    if (
+        isinstance(wind_speed, bool)
+        or not isinstance(wind_speed, (int, float))
+        or wind_speed < 0
+    ):
+        errors.append("Wind speed must be a non-negative number.")
+
+    if not isinstance(gps_status, bool):
+        errors.append("GPS status must be True or False.")
+
+    return {
+        "valid": not errors,
+        "errors": errors,
+    }
+
+
+if __name__ == "__main__":
+    sample = {
+        "battery": 80,
+        "wind_speed": 15,
+        "gps_status": True,
+    }
+
+    print(validate_mission(sample))
