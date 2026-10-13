@@ -1,36 +1,45 @@
+# Drone Mission Intelligence & Safety Validation
 
-# Drone Mission Intelligence & Safety System
+A Python project exploring input validation and safety-oriented checks for simulated drone mission data.
 
-An educational project exploring agentic AI concepts for drone mission decision support.
+## Features
 
-## Project Goals
+- Validates required mission fields.
+- Checks battery values are between 0 and 100.
+- Rejects negative wind-speed values.
+- Validates GPS status as a Boolean.
+- Reports missing or invalid inputs.
+- Includes automated unit tests using Python's `unittest` framework.
 
-- Explore multi-agent orchestration for mission analysis.
-- Investigate retrieval-augmented generation (RAG) for operational knowledge.
-- Design risk assessment and safety validation workflows.
-- Explore human approval for decisions requiring review.
-- Document testing and system limitations.
+## Project Structure
 
-## Planned Components
+```text
+drone-mission-intelligence/
+├── mission_validator.py
+├── test_mission_validator.py
+├── README.md
+└── .gitignore
+```
 
-- Mission input and validation
-- Risk assessment
-- Knowledge retrieval
-- Decision support
-- Safety checks
-- Mission reports
+## Requirements
 
-## Technology Direction
+- Python 3.9 or later
+- No third-party packages required
 
-- Python
-- Agent orchestration
-- Retrieval-augmented generation (RAG)
-- Automated testing
+## Run the Example
 
-## Project Status
+```bash
+python mission_validator.py
+```
 
-This repository is being developed. Components and technologies will be documented as they are implemented and tested.
+## Run Tests
 
-## Safety Notice
+```bash
+python -m unittest -v test_mission_validator
+```
 
-This project is intended for educational simulation only. It is not designed to control real drones or replace professional flight-safety procedures.
+## Scope and Limitations
+
+This project currently focuses on mission-input validation. It does not implement a complete autonomous drone system, live drone control, RAG, computer vision, or multi-agent orchestration.
+
+It is an educational software project and must not be used as a substitute for real-world flight-safety systems.
